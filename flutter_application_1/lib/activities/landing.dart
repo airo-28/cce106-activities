@@ -10,6 +10,7 @@ class LandingPage extends StatelessWidget {
   });
 
   @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Parondo - task 6")), // AppBar
       body: Center(
