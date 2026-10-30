@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/activities/main_cross_alignments.dart';
+import 'package:flutter_application_1/activities/login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(useMaterial3: false, primarySwatch: Colors.blue),
-      home: const MainCrossAlignments(),
+      home: const LoginPage(),
     );
   }
 }

@@ -12,8 +12,6 @@ class MainCrossAlignments extends StatelessWidget {
         backgroundColor: Colors.teal,
       ),
 
-      // ONLY ONE body: SHOULD BE UNCOMMENTED AT A TIME
-
       // ===== 1. ROW - MainAxisAlignment =====
       // Change both the title and the mainAxisAlignment line:
       // center, spaceAround, spaceBetween, spaceEvenly, start, end
