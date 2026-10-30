@@ -12,88 +12,157 @@ class MainCrossAlignments extends StatelessWidget {
         backgroundColor: Colors.teal,
       ),
 
-      // ===== 1. ROW - MainAxisAlignment =====
-      // Change both the title and the mainAxisAlignment line:
-      // center, spaceAround, spaceBetween, spaceEvenly, start, end
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text('Row - MainAxisAlignment.center'),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center, // <-- change this
-            children: [
-              Container(width: 50, height: 50, color: Colors.red),
-              Container(width: 50, height: 50, color: Colors.yellow),
-              Container(width: 50, height: 50, color: Colors.blue),
-            ],
-          ),
-        ],
-      ),
+      // ONLY ONE body: SHOULD BE ACTIVE AT A TIME
+      // Comment out the active one, uncomment the next, then hot restart.
 
-      // ===== 2. ROW - CrossAxisAlignment =====
-      // Change both the title and the crossAxisAlignment line:
-      // start, end, baseline, center, stretch
-      // (for baseline, also uncomment the textBaseline line)
+      // ===== 1. MainAxisAlignment.center =====
       // body: Column(
       //   mainAxisAlignment: MainAxisAlignment.center,
       //   children: [
-      //     const Text('Row - CrossAxisAlignment.start'),
-      //     SizedBox(
-      //       height: 200,
-      //       child: Row(
-      //         mainAxisAlignment: MainAxisAlignment.center,
-      //         crossAxisAlignment: CrossAxisAlignment.start, // <-- change this
-      //         // textBaseline: TextBaseline.alphabetic,     // <-- only for baseline
-      //         children: [
-      //           Container(color: Colors.red, child: const Text('A', style: TextStyle(fontSize: 20))),
-      //           Container(color: Colors.yellow, child: const Text('B', style: TextStyle(fontSize: 40))),
-      //           Container(color: Colors.blue, child: const Text('C', style: TextStyle(fontSize: 60))),
-      //         ],
-      //       ),
+      //     const Text('MainAxisAlignment.center'),
+      //     const SizedBox(height: 20),
+      //     Row(
+      //       mainAxisAlignment: MainAxisAlignment.center,
+      //       children: [
+      //         Container(width: 50, height: 50, color: Colors.red),
+      //         Container(width: 50, height: 50, color: Colors.yellow),
+      //         Container(width: 50, height: 50, color: Colors.blue),
+      //       ],
       //     ),
       //   ],
       // ),
 
-      // ===== 3. COLUMN - MainAxisAlignment =====
-      // Change both the title and the mainAxisAlignment line:
-      // center, spaceAround, spaceBetween, spaceEvenly, start, end
+      // ===== 2. MainAxisAlignment.spaceAround =====
       // body: Column(
+      //   mainAxisAlignment: MainAxisAlignment.center,
       //   children: [
-      //     const Text('Column - MainAxisAlignment.center'),
-      //     Expanded(
-      //       child: Column(
-      //         mainAxisAlignment: MainAxisAlignment.center, // <-- change this
-      //         children: [
-      //           Container(width: 50, height: 50, color: Colors.red),
-      //           Container(width: 50, height: 50, color: Colors.yellow),
-      //           Container(width: 50, height: 50, color: Colors.blue),
-      //         ],
-      //       ),
+      //     const Text('MainAxisAlignment.spaceAround'),
+      //     const SizedBox(height: 20),
+      //     Row(
+      //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //       children: [
+      //         Container(width: 50, height: 50, color: Colors.red),
+      //         Container(width: 50, height: 50, color: Colors.yellow),
+      //         Container(width: 50, height: 50, color: Colors.blue),
+      //       ],
       //     ),
       //   ],
       // ),
 
-      // ===== 4. COLUMN - CrossAxisAlignment =====
-      // Change both the title and the crossAxisAlignment line:
-      // start, end, baseline, center, stretch
-      // (for baseline, also uncomment the textBaseline line)
+      // ===== 3. MainAxisAlignment.spaceBetween =====
       // body: Column(
+      //   mainAxisAlignment: MainAxisAlignment.center,
       //   children: [
-      //     const Text('Column - CrossAxisAlignment.start'),
-      //     Expanded(
-      //       child: Column(
-      //         mainAxisAlignment: MainAxisAlignment.center,
-      //         crossAxisAlignment: CrossAxisAlignment.start, // <-- change this
-      //         // textBaseline: TextBaseline.alphabetic,     // <-- only for baseline
-      //         children: [
-      //           Container(color: Colors.red, child: const Text('A', style: TextStyle(fontSize: 20))),
-      //           Container(color: Colors.yellow, child: const Text('B', style: TextStyle(fontSize: 40))),
-      //           Container(color: Colors.blue, child: const Text('C', style: TextStyle(fontSize: 60))),
-      //         ],
-      //       ),
+      //     const Text('MainAxisAlignment.spaceBetween'),
+      //     const SizedBox(height: 20),
+      //     Row(
+      //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //       children: [
+      //         Container(width: 50, height: 50, color: Colors.red),
+      //         Container(width: 50, height: 50, color: Colors.yellow),
+      //         Container(width: 50, height: 50, color: Colors.blue),
+      //       ],
       //     ),
       //   ],
       // ),
+
+      // ===== 4. MainAxisAlignment.spaceEvenly =====
+      // body: Column(
+      //   mainAxisAlignment: MainAxisAlignment.center,
+      //   children: [
+      //     const Text('MainAxisAlignment.spaceEvenly'),
+      //     const SizedBox(height: 20),
+      //     Row(
+      //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //       children: [
+      //         Container(width: 50, height: 50, color: Colors.red),
+      //         Container(width: 50, height: 50, color: Colors.yellow),
+      //         Container(width: 50, height: 50, color: Colors.blue),
+      //       ],
+      //     ),
+      //   ],
+      // ),
+
+      // ===== 5. MainAxisAlignment.start =====
+      // body: Column(
+      //   mainAxisAlignment: MainAxisAlignment.center,
+      //   children: [
+      //     const Text('MainAxisAlignment.start'),
+      //     const SizedBox(height: 20),
+      //     Row(
+      //       mainAxisAlignment: MainAxisAlignment.start,
+      //       children: [
+      //         Container(width: 50, height: 50, color: Colors.red),
+      //         Container(width: 50, height: 50, color: Colors.yellow),
+      //         Container(width: 50, height: 50, color: Colors.blue),
+      //       ],
+      //     ),
+      //   ],
+      // ),
+
+      // ===== 6. MainAxisAlignment.end =====
+      // body: Column(
+      //   mainAxisAlignment: MainAxisAlignment.center,
+      //   children: [
+      //     const Text('MainAxisAlignment.end'),
+      //     const SizedBox(height: 20),
+      //     Row(
+      //       mainAxisAlignment: MainAxisAlignment.end,
+      //       children: [
+      //         Container(width: 50, height: 50, color: Colors.red),
+      //         Container(width: 50, height: 50, color: Colors.yellow),
+      //         Container(width: 50, height: 50, color: Colors.blue),
+      //       ],
+      //     ),
+      //   ],
+      // ),
+
+      // ===== 7. CrossAxisAlignment.start =====
+      // body: SizedBox(
+      //   width: double.infinity,
+      //   child: Column(
+      //     mainAxisAlignment: MainAxisAlignment.center,
+      //     crossAxisAlignment: CrossAxisAlignment.start,
+      //     children: [
+      //       const Text('CrossAxisAlignment.start'),
+      //       const SizedBox(height: 20),
+      //       Container(
+      //         margin: const EdgeInsets.only(left: 50),
+      //         width: 50,
+      //         height: 50,
+      //         color: Colors.red,
+      //       ),
+      //       Container(
+      //         margin: const EdgeInsets.only(left: 50),
+      //         width: 50,
+      //         height: 50,
+      //         color: Colors.yellow,
+      //       ),
+      //       Container(
+      //         margin: const EdgeInsets.only(left: 50),
+      //         width: 50,
+      //         height: 50,
+      //         color: Colors.blue,
+      //       ),
+      //     ],
+      //   ),
+      // ),
+
+      // ===== 8. CrossAxisAlignment.center =====
+      body: SizedBox(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Text('CrossAxisAlignment.center'),
+            const SizedBox(height: 20),
+            Container(width: 50, height: 50, color: Colors.red),
+            Container(width: 50, height: 50, color: Colors.yellow),
+            Container(width: 50, height: 50, color: Colors.blue),
+          ],
+        ),
+      ),
     );
   }
 }
