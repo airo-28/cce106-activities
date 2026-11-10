@@ -4,11 +4,11 @@ import 'package:flutter_application_1/model/friend.dart';
 import '../model/userdata.dart';
 
 class Friendlist extends StatelessWidget {
-  Friendlist({super.key, required this.userdata});
+  const Friendlist({super.key, required this.userdata});
 
   final UserData userdata;
 
-  var followTxtStyle = const TextStyle(
+  final followTxtStyle = const TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
   );
@@ -16,7 +16,13 @@ class Friendlist extends StatelessWidget {
   Widget friend(Friend friend) => Card(
     child: Column(
       children: [
-        Expanded(child: Image.asset(friend.img)),
+        Expanded(
+          child: Image.asset(
+            friend.img,
+            fit: BoxFit.cover,
+            width: double.infinity,
+          ),
+        ),
         Padding(padding: const EdgeInsets.all(8.0), child: Text(friend.name)),
       ],
     ),
