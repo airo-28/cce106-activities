@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../model/userdata.dart';
 
 class Infoheader extends StatelessWidget {
-  Infoheader({super.key, required this.userdata});
+  const Infoheader({super.key, required this.userdata});
   final UserData userdata;
 
   final followTxtStyle = const TextStyle(
