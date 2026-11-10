@@ -6,7 +6,7 @@ class Infoheader extends StatelessWidget {
   Infoheader({super.key, required this.userdata});
   final UserData userdata;
 
-  var followTxtStyle = const TextStyle(
+  final followTxtStyle = const TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
   );

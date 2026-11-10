@@ -3,11 +3,24 @@ import 'package:flutter_application_1/model/usercomment.dart';
 import 'package:flutter_application_1/model/userdata.dart';
 import 'package:flutter_application_1/model/userpost.dart';
 
-class ProfileView extends StatelessWidget {
-  ProfileView({super.key, required this.userPost});
+class ProfileView extends StatefulWidget {
+  const ProfileView({
+    super.key,
+    required this.userPost,
+    required this.userData,
+  });
 
   final Userpost userPost;
-  final Userdata userData = Userdata();
+  final UserData userData;
+
+  @override
+  State<ProfileView> createState() => _ProfileViewState();
+}
+
+class _ProfileViewState extends State<ProfileView> {
+  Userpost get userPost => widget.userPost;
+  UserData get userData => widget.userData;
+  final TextEditingController commentController = TextEditingController();
 
   var nametxtStyle = const TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
   var boldtxtStyle = const TextStyle(fontWeight: FontWeight.bold);
@@ -22,7 +35,7 @@ class ProfileView extends StatelessWidget {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Text(userComment.commenterTime),
+        Text(userComment.commentTime),
         const SizedBox(width: 15),
         const Text('Like'),
         const SizedBox(width: 15),
@@ -39,7 +52,7 @@ class ProfileView extends StatelessWidget {
       children: [
         Text(userComment.commenterName, style: boldtxtStyle),
         const SizedBox(height: 5),
-        Row(children: [Text(userComment.commenterContent)]),
+        Row(children: [Text(userComment.commentContent)]),
       ],
     ), // Column
   ); // Padding
@@ -105,7 +118,7 @@ class ProfileView extends StatelessWidget {
   Widget buttons(Userpost userPost) => Column(
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
-      Divider(color: Colors.grey), // Divider
+      const Divider(color: Colors.grey), // Divider
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Row(
@@ -113,7 +126,7 @@ class ProfileView extends StatelessWidget {
           children: [
             TextButton.icon(
               style: TextButton.styleFrom(
-                foregroundColor: userPost.isLiked ? Colors.grey : Colors.blue,
+                foregroundColor: userPost.isliked ? Colors.grey : Colors.blue,
               ),
               onPressed: () {},
               icon: const Icon(Icons.thumb_up, size: 20),
@@ -187,6 +200,28 @@ class ProfileView extends StatelessWidget {
   ); // Padding
 
   @override
+  void dispose() {
+    commentController.dispose();
+    super.dispose();
+  }
+
+  void addComment() {
+    final text = commentController.text.trim();
+    if (text.isEmpty) return;
+    setState(() {
+      userData.commentList.add(
+        Usercomment(
+          commenterImg: userData.myAccount.img,
+          commenterName: userData.myAccount.name,
+          commentTime: 'Just now',
+          commentContent: text,
+        ),
+      );
+    });
+    commentController.clear();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -199,6 +234,32 @@ class ProfileView extends StatelessWidget {
           },
           icon: const Icon(Icons.arrow_back, color: Colors.grey),
         ), // IconButton
+      ),
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Row(
+            children: [
+              Expanded(
+                child: TextField(
+                  controller: commentController,
+                  decoration: const InputDecoration(
+                    hintText: 'Write a comment...',
+                    border: OutlineInputBorder(),
+                  ),
+                  onSubmitted: (_) => addComment(),
+                ),
+              ),
+              IconButton(
+                onPressed: addComment,
+                icon: const Icon(Icons.send, color: Colors.blue),
+              ),
+            ],
+          ),
+        ),
       ), // AppBar
       body: ListView(
         padding: EdgeInsets.zero,

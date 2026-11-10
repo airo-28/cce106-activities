@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
+import 'profile.view.dart';
 import '../model/userdata.dart';
 import '../model/userpost.dart';
 
 class Postlist extends StatefulWidget {
   const Postlist({super.key, required this.userdata});
 
-  final Userdata userdata;
+  final UserData userdata;
   @override
   State<Postlist> createState() => _PostlistState();
 }
@@ -23,11 +24,11 @@ class _PostlistState extends State<Postlist> {
     children: [
       TextButton.icon(
         style: TextButton.styleFrom(
-          foregroundColor: (userPost.isLiked) ? Colors.blue : Colors.grey,
+          foregroundColor: (userPost.isliked) ? Colors.blue : Colors.grey,
         ),
         onPressed: () {
           setState(() {
-            userPost.isLiked = (userPost.isLiked) ? false : true;
+            userPost.isliked = (userPost.isliked) ? false : true;
           });
         },
         icon: const Icon(Icons.thumb_up),
@@ -117,19 +118,20 @@ class _PostlistState extends State<Postlist> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      child: ListView(
-        shrinkWrap: true,
-        children: widget.userdata.userList.map((userPost) {
-          return InkWell(
-            onTap: () {
-              gotoPage(context, ProfileView(userPost: userPost));
-            },
-            child: showPost(userPost),
-          ); // InkWell
-        }).toList(),
-      ), // ListView
-    ); // SingleChildScrollView
+    return ListView(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      children: widget.userdata.userList.map((userPost) {
+        return InkWell(
+          onTap: () {
+            gotoPage(
+              context,
+              ProfileView(userPost: userPost, userData: widget.userdata),
+            );
+          },
+          child: showPost(userPost),
+        );
+      }).toList(),
+    );
   }
 }
