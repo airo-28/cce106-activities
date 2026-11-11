@@ -4,6 +4,10 @@ import 'userpost.dart';
 import 'account.dart';
 
 class UserData {
+  static final UserData _instance = UserData._internal();
+  factory UserData() => _instance;
+  UserData._internal();
+
   List<Userpost> userList = [
     Userpost(
       userimg: 'assets/images/user1.png',
@@ -11,9 +15,28 @@ class UserData {
       time: '2 hours ago',
       postcontent: 'This is a sample post content.',
       postimg: 'assets/images/post1.png',
-      numcomments: '10',
       numshare: '5',
       isliked: false,
+      comments: [
+        Usercomment(
+          commenterImg: 'assets/images/user3.png',
+          commenterName: 'Alice',
+          commentTime: '2 hours ago',
+          commentContent: 'Looks Fun!',
+        ),
+        Usercomment(
+          commenterImg: 'assets/images/user4.png',
+          commenterName: 'Bob',
+          commentTime: '1 hour ago',
+          commentContent: 'Great post!',
+        ),
+        Usercomment(
+          commenterImg: 'assets/images/user5.png',
+          commenterName: 'Ethan',
+          commentTime: '30 minutes ago',
+          commentContent: 'Nice picture!',
+        ),
+      ],
     ),
     Userpost(
       userimg: 'assets/images/user2.png',
@@ -21,9 +44,22 @@ class UserData {
       time: '1 hour ago',
       postcontent: 'Another sample post content.',
       postimg: 'assets/images/post2.png',
-      numcomments: '20',
       numshare: '8',
       isliked: true,
+      comments: [
+        Usercomment(
+          commenterImg: 'assets/images/user6.png',
+          commenterName: 'Fiona',
+          commentTime: '45 minutes ago',
+          commentContent: 'Love this!',
+        ),
+        Usercomment(
+          commenterImg: 'assets/images/user1.png',
+          commenterName: 'Charlie',
+          commentTime: '20 minutes ago',
+          commentContent: 'Where was this taken?',
+        ),
+      ],
     ),
     Userpost(
       userimg: 'assets/images/user3.png',
@@ -31,9 +67,16 @@ class UserData {
       time: '2 hours ago',
       postcontent: 'This is the third sample content.',
       postimg: 'assets/images/post3.png',
-      numcomments: '10',
       numshare: '5',
       isliked: false,
+      comments: [
+        Usercomment(
+          commenterImg: 'assets/images/user2.png',
+          commenterName: 'Diana',
+          commentTime: '1 hour ago',
+          commentContent: 'So cool!',
+        ),
+      ],
     ),
     Userpost(
       userimg: 'assets/images/user4.png',
@@ -41,9 +84,9 @@ class UserData {
       time: '2 hours ago',
       postcontent: 'This is the fourth.',
       postimg: 'assets/images/post4.png',
-      numcomments: '10',
       numshare: '5',
       isliked: false,
+      comments: [],
     ),
   ];
 
@@ -54,29 +97,6 @@ class UserData {
     Friend(img: 'assets/images/user2.png', name: 'Diana'),
     Friend(img: 'assets/images/user5.png', name: 'Ethan'),
     Friend(img: 'assets/images/user6.png', name: 'Fiona'),
-  ];
-
-  List<Usercomment> commentList = [
-    Usercomment(
-      commenterImg: 'assets/images/user1.png',
-      commenterName: 'Alice',
-      commentTime: '2 hours ago',
-      commentContent: 'Looks Fun!',
-    ),
-
-    Usercomment(
-      commenterImg: 'assets/images/user2.png',
-      commenterName: 'Bob',
-      commentTime: '1 hour ago',
-      commentContent: 'Great post!',
-    ),
-
-    Usercomment(
-      commenterImg: 'assets/images/user3.png',
-      commenterName: 'Charlie',
-      commentTime: '30 minutes ago',
-      commentContent: 'Nice picture!',
-    ),
   ];
 
   Account myAccount = Account(

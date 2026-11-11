@@ -100,7 +100,11 @@ class _ProfileViewState extends State<ProfileView> {
       const Divider(color: Colors.grey),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: Row(children: [Text(userPost.numshare, style: boldtxtStyle)]),
+        child: Row(
+          children: [
+            Text('${userPost.numcomments} Comments', style: boldtxtStyle),
+          ],
+        ),
       ), // Padding
       const SizedBox(height: 15),
       Padding(
@@ -209,7 +213,7 @@ class _ProfileViewState extends State<ProfileView> {
     final text = commentController.text.trim();
     if (text.isEmpty) return;
     setState(() {
-      userData.commentList.add(
+      userPost.comments.add(
         Usercomment(
           commenterImg: userData.myAccount.img,
           commenterName: userData.myAccount.name,
@@ -268,7 +272,7 @@ class _ProfileViewState extends State<ProfileView> {
           postimage(userPost),
           buttons(userPost),
           commenters(userPost),
-          ...userData.commentList.map(
+          ...userPost.comments.map(
             (userComment) => userpostdetails(userComment),
           ),
         ],

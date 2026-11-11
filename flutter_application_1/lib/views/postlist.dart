@@ -15,8 +15,11 @@ class Postlist extends StatefulWidget {
 class _PostlistState extends State<Postlist> {
   var nametxtStyle = const TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
 
-  gotoPage(BuildContext context, dynamic page) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => page));
+  Future<void> gotoPage(BuildContext context, dynamic page) async {
+    await Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => page));
+    if (!mounted) return;
+    setState(() {});
   }
 
   Widget buttons(Userpost userPost) => Row(
@@ -36,7 +39,12 @@ class _PostlistState extends State<Postlist> {
       ), // TextButton.icon
       TextButton.icon(
         style: TextButton.styleFrom(foregroundColor: Colors.grey),
-        onPressed: () {},
+        onPressed: () {
+          gotoPage(
+            context,
+            ProfileView(userPost: userPost, userData: widget.userdata),
+          );
+        },
         icon: const Icon(Icons.message),
         label: const Text('Comment'),
       ), // TextButton.icon
