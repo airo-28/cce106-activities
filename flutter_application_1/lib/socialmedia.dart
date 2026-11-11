@@ -5,14 +5,14 @@ import 'package:flutter_application_1/views/infoheader.dart';
 import 'package:flutter_application_1/views/mainheader.dart';
 import 'package:flutter_application_1/views/postlist.dart';
 
-class Socialmedia extends StatelessWidget {
-  const Socialmedia({super.key});
+class SocialMedia extends StatefulWidget {
+  const SocialMedia({super.key});
 
   @override
-  State<Socialmedia> createState() => _SocialmediaState();
+  State<SocialMedia> createState() => _SocialMediaState();
 }
 
-class _SocialmediaState extends State<Socialmedia> {
+class _SocialMediaState extends State<SocialMedia> {
   UserData userdata = UserData();
 
   var followTxtStyle = const TextStyle(
