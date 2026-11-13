@@ -97,13 +97,13 @@ class StudentDashboard extends StatelessWidget {
           ),
           buildSubjectCard(
             'Networking Fundamentals',
-            'Mrs. Garcia',
-            'Tue/Thu 1:00 - 2:30 PM',
+            'Mr. Talite',
+            'Mon/Fri 10:00 - 12:00 PM',
           ),
           buildSubjectCard(
-            'Operating Systems',
-            'Dr. Lee',
-            'Fri 8:00 - 11:00 AM',
+            'Cybersecurity Fundamentals',
+            'Ms. Owe',
+            'Mon/Fri 5:30 - 7:30 PM',
           ),
         ],
       ),
