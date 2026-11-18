@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class StudentDashboard extends StatelessWidget {
   const StudentDashboard({super.key});
 
-  // ---------- Profile header (Row: avatar + Column of texts) ----------
+  // Profile header 
   Widget buildProfileHeader() {
     return Row(
       children: [
@@ -27,7 +27,7 @@ class StudentDashboard extends StatelessWidget {
     );
   }
 
-  // ---------- Student information card (Card + 3 ListTiles) ----------
+  // Student information card 
   Widget buildInfoCard() {
     return Card(
       elevation: 4,
