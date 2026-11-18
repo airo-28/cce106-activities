@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/auth_service.dart';
+import 'package:flutter_application_1/login_page.dart';
 
 import 'crud_service.dart';
 
@@ -21,7 +23,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.grey,
       appBar: AppBar(
-        title: const Text('Firebase | Parondo'),
+        title: const Text('Firebase | Parondo'), // <- change to YOUR lastname
         centerTitle: true,
         backgroundColor: Colors.teal,
         actions: [
@@ -32,6 +34,17 @@ class _HomePageState extends State<HomePage> {
             ),
             onPressed: () =>
                 setState(() => showFavoritesOnly = !showFavoritesOnly),
+          ),
+          IconButton(
+            icon: const Icon(Icons.logout, color: Colors.white),
+            onPressed: () async {
+              await AuthService().signOut();
+              if (!context.mounted) return;
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const LoginPage()),
+              );
+            },
           ),
         ],
       ),
